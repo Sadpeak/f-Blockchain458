@@ -11,18 +11,17 @@ contract multi {
 		tvm.accept();
 	}
 
-	modifier checkOwnerAndAccept {
+	modifier checkOwnerAndAccept(uint value) {
 
 		require(msg.pubkey() == tvm.pubkey(), 102);
+      		require(value >= 1 && value <= 10, 103);
       
 		tvm.accept();
 		_;
 	}
 
-	function multiply(uint value) public checkOwnerAndAccept {
-	
-      		require(value >= 1 && value <= 10, 103);
-	
+	function multiply(uint value) public checkOwnerAndAccept(value) {
+      
 		sum *= value;
 	}
 }
