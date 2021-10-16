@@ -20,7 +20,9 @@ contract multi {
 	}
 
 	function multiply(uint value) public checkOwnerAndAccept {
-      require(value >= 1 && value <= 10, 103);
+	
+      		require(value >= 1 && value <= 10, 103);
+	
 		sum *= value;
 	}
 }
